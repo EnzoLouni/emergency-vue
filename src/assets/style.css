@@ -13,10 +13,6 @@ body{
     display: flex;
 	flex-wrap: wrap;
 }
-.header-col{
-    width: 50%;
-    padding: 0 15px;
- }
 
 header{
 	background-color: #24262b;
@@ -49,11 +45,33 @@ aside {
 	height: 500px;
 }
 
-.card:hover {
+.card-container {
+    height: 100%;
+}
+
+.card {
+	height : 50%;
+}
+
+.data-object-container:hover {
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.data-object-container {
+	width: 400px; /*1*/
+	margin: 0px auto; /*2*/
+	background-color: white; /*3*/
+	box-shadow: 0px 5px 20px #999; /*4*/
 }
   
 .data-container {
 	width: 35%;
 	float: left;
+	height: 90vh;
+}
+
+.station-data {
+	background-color: #dee;
+    max-height: 80%;
+    overflow-y: scroll;
 }

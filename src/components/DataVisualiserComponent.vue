@@ -1,37 +1,45 @@
 <template>
-   <div class="card">
-      Sinistres
-   </div> 
-   <div class="card">
-   Vehicules
-   <ul id="example-1">
-      <li v-for="vehicle in vehicleList" v-bind:key="vehicle.id">
-         {{ vehicle.id }}
-      </li>
-   </ul>
-   </div> 
-   <div class="card">
-    Agents
-   </div> 
+   <div class="card-container">
+      <div class="card">
+         <h2>Agents inactifs</h2>
+         <ul class="station-data">
+            <li v-for="station in stations" :key="station">
+               <div v-if="station.agents.length !== 0">
+                  <h3>{{ station.name }}</h3>
+                  <ul>
+                     <li v-for="agent in station.agents" :key="agent">
+                        {{ agent.name }}
+                     </li>
+                  </ul>
+               </div>
+            </li>
+         </ul>
+      </div> 
+      <div class="card">
+         <h2>Vehicules inactifs</h2>
+         <ul class="station-data">
+            <li v-for="station in stations" :key="station">
+               <div v-if="station.vehicles.length !== 0">
+                  <h3>{{ station.name }}</h3>
+                  <ul>
+                     <li v-for="vehicle in station.vehicles" :key="vehicle ">
+                        Camion n°{{ vehicle.id }}
+                     </li>
+                  </ul>
+               </div>
+            </li>
+         </ul>
+      </div>
+   </div>
 </template>
 <script>
-export default {
-props: {
-   accidentList: Object,
-   vehicleList: Object,
-   agentList: Object
-}
-}
-</script>
+import { mapGetters } from 'vuex';
 
-<!-- A METTRE QQ PART
-   data() {
-   return {
-     accidentList :{
-       id: 1,
-       intensity : 10
-     },
-     vehicleList : [ { id: '1' } ],
-     agentList : [ { id: '1' } ]
-   }
- }   -->
+export default {
+  computed: {
+      ...mapGetters('stations', {
+         stations: 'getStations',
+      }),
+  },
+};
+</script>

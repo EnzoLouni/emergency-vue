@@ -16,7 +16,6 @@ import "../assets/style.css";
 
 
 export default {
-  name: 'App',
   components: {
     MapComponent,
     HeaderComponent,
