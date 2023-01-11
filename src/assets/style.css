@@ -42,7 +42,7 @@ aside {
 }
 
 .map {
-	height: 500px;
+	height: 100vh;
 }
 
 .card-container {
@@ -74,4 +74,8 @@ aside {
 	background-color: #dee;
     max-height: 80%;
     overflow-y: scroll;
+}
+
+ul {
+	list-style-type: none;
 }

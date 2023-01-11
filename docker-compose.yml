@@ -1,0 +1,9 @@
+services:
+  emergency_vue:
+    image: mutton/em_vue
+    container_name: EMERGENCY_VUE
+    ports:
+      - "8080:8080"
+    build: 
+      context: .
+      dockerfile: Dockerfile

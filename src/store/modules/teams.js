@@ -140,28 +140,13 @@ const getters = {
         }
     }) 
   },
-  getAgents: (state) => {
-    return state.teams.map(({ id }) => {
-        const team = state.teams.find(team => team.id === id);
-        console.log(team.agents);
-        return {
-          agents: team.agents
-        }
-    }) 
-  },
-  getVehicles: (state) => {
-    return state.teams.map(({ id }) => {
-        const team = state.teams.find(team => team.id === id)
-        return {
-          vehicles: team.vehicles
-        }
-    }) 
-  },
   getAccidents: (state) => {
     return state.teams.map(({ id }) => {
         const team = state.teams.find(team => team.id === id)
         const coords = team.accident.coordinates.split(',');
         return {
+          agents: team.agents,
+          vehicles: team.vehicles,
           id: team.accident.id,
           lattitude: coords[0].slice(1),
           longitude: coords[1].slice(0, -1),

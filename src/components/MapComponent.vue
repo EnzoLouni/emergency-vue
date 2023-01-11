@@ -11,6 +11,16 @@
           <l-marker :lat-lng="[accident.lattitude, accident.longitude]" :icon="fireIcon" >
             <l-tooltip>
               <h4>Sinistre N°{{accident.id}}</h4> Intensité <strong>{{ accident.intensity }}</strong>
+              <ul>
+                     <h5>Agents mobilisés :</h5>
+                     <li v-for="agent in accident.agents" :key="agent">
+                        {{ agent.name }}
+                     </li>
+                     <h5>Vehicules mobilisés :</h5>
+                     <li v-for="vehicle in accident.vehicles" :key="vehicle">
+                        Vehicle N°{{ vehicle.id }}
+                     </li>
+                  </ul>
             </l-tooltip> 
           </l-marker>
         </li>
@@ -18,6 +28,16 @@
           <l-marker :lat-lng="[station.lattitude, station.longitude]" :icon="stationIcon">
             <l-tooltip>
               <h4>{{station.name}}</h4>
+                  <ul>
+                     <h5>Agents libres :</h5>
+                     <li v-for="agent in station.agents" :key="agent">
+                        {{ agent.name }}
+                     </li>
+                     <h5>Vehicules disponibles :</h5>
+                     <li v-for="vehicle in station.vehicles" :key="vehicle">
+                        Vehicle N°{{ vehicle.id }}
+                     </li>
+                  </ul>
             </l-tooltip> 
           </l-marker>
         </li>
@@ -84,7 +104,7 @@ export default {
     setInterval(function () {
       self.loadStations();
       self.loadTeams();
-    }, 10000);
+    }, 3000);
   }
 };
 </script>
