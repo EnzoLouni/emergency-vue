@@ -1,7 +1,7 @@
 <template>
     <header>
         <div class="container">
-            <a href="#">Emergency view</a>
+            <a href="#">Simulator view</a>
         </div>
     </header>
 </template>
